@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Graph Search Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #f7f3f3;
+            color: rgb(10, 10, 10);
+            text-align: left;
+        }
+
+        footer p {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        #social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #social-links li a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        #social-links li a:hover {
+            color: #FFD700;
+        }
+
+        footer i {
+            margin-right: 8px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        #graph-container {
+            position: relative;
+        }
+
+        #controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        #priority-queue {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #queueList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #queueList li {
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Interactive Graph Search Visualization</h1>
+    </header>
+    <main>
+        <div id="graph-container">
+            <canvas id="graphCanvas" width="800" height="600"></canvas>
+        </div>
+        <div id="controls">
+            <h2>Graph Editor</h2>
+            <form id="addEdgeForm">
+                <label for="fromNode">From Node:</label>
+                <input type="text" id="fromNode" required>
+                <label for="toNode">To Node:</label>
+                <input type="text" id="toNode" required>
+                <label for="cost">Cost:</label>
+                <input type="number" id="cost" min="1" required>
+                <button type="submit">Add Edge</button>
+            </form>
+            <button id="startUCSButton" class="action-button">Start UCS</button>
+            <button id="startBFSButton" class="action-button">Start BFS</button>
+            <button id="startDFSButton" class="action-button">Start DFS</button>
+            <button id="resetButton" class="action-button">Reset</button>
+        </div>
+        <div id="priority-queue">
+            <h2>Priority Queue</h2>
+            <ul id="queueList"></ul>
+        </div>
+    </main>
+
+    <script src="app1.js"></script>
+</body>
+</html>
